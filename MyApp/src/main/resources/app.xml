@@ -17,13 +17,19 @@
 		<constructor-arg ref="helloService"/>
 		</bean>  -->
 		
-		<context:component-scan base-package="org.kg.myapp"/>
+		  <context:component-scan base-package="org.kg.myapp"/>
 		<context:component-scan base-package="org.kg.myapp.*"/>
-		<aop:config>
+		<!--<aop:config>
 			<aop:pointcut expression="execution(* org.kg..HelloController.sayHello(..))" id="timeLog"/>
 			<aop:aspect ref="helloLog">
 			<aop:before method="printTime" pointcut-ref="timeLog"/>
 			</aop:aspect>
+			<aop:aspect ref="timeTracer">
+			<aop:around method="trace" pointcut-ref="timeLog"/>
+			</aop:aspect>
+		</aop:config>-->
 		
-		</aop:config>
+	<aop:aspectj-autoproxy/>
+
+
 </beans>

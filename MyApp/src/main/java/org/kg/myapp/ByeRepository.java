@@ -12,3 +12,4 @@ public class ByeRepository implements IHelloRepository{
 	}
 	
 }
+
