@@ -30,6 +30,19 @@
 		</aop:config>-->
 		
 	<aop:aspectj-autoproxy/>
-
+	
+	<context:property-placeholder location="classpath:db/jdbc.properties" />
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	<property name="driverClassName" value="${jdbc.driverClassName}"/>
+	<property name="url" value="${jdbc.url}"/>
+	<property name="username" value="${jdbc.username}"/>
+	<property name="password" value="${jdbc.password}"/>
+			
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<property name="dataSource" ref="dataSource"/>
+	
+	</bean>
 
 </beans>
